@@ -1,0 +1,92 @@
+{
+	// Place your snippets for go here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+
+	"logger": {
+		"prefix": "logc",
+		"body": [
+			"log.C(c)",
+		],
+		"description": "日志对象"
+	},
+
+	"err": {
+		"prefix": "errc",
+		"body": [
+			"if err != nil {",
+			"    log.C(c).Error($1, zap.Error(err), $2)",
+			"    return $3",
+			"}"
+		],
+		"description": "错误日志"
+	},
+
+	"Define a Receiver": {
+		"prefix": "funcr",
+		"body": [
+			"func ($2 *$1) $3($4) $5 {",
+			"    $6",	
+			"}"
+		],
+		"description": "接收器函数"
+	},
+
+	"Define a controller function": {
+		"prefix": "ctrlfn",
+		"body": [
+			"func (ctrl *$1) $2(c *gin.Context) {",
+			"    log.C(c).Info(\"act:$2\", log.CURL(c.Request))",
+			"    $3",
+			"}"
+		],
+		"description": "定义控制器函数"
+	},
+
+	"Define a service function": {
+		"prefix": "servfn",
+		"body": [
+			"func (serv *$1) $2(c context.Context, $3) $4 {",
+			"    $5",	
+			"}"
+		],
+		"description": "定义业务函数"
+	},
+
+	"Define a store impl": {
+		"prefix": "defstore",
+		"body": [
+			"type $1Store interface {",
+			"    $2(c context.Context, $3) $4",
+			"}",
+			"",
+			"type $5Store struct {",
+			"    db *xorm.EngineGroup",
+			"}",
+			"",
+			"func New$1Store(db *xorm.EngineGroup) $1 {",
+			"    return &$5Store{",
+			"        db: db,",
+			"    }",
+			"}",
+			"",
+			"func (s *$5Store) $2(c context.Context, $6) $7 {",
+			"    $8",
+			"}",
+		],
+		"description": "定义数据存储层"
+	},
+
+
+	/* XORM 相关 */
+	"xorm pagination": {
+		"prefix": "xpage",
+		"body": [
+			"Limit(size, (page-1)*size).",
+			"FindAndCount($1)"
+		],
+		"description": "定义业务函数"
+	},
+}
