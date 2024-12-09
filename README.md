@@ -23,6 +23,8 @@
 
 ## Extensions
 
+[GitLens](https://github.com/gitkraken/vscode-gitlens) [无限试用GitLens的方案](https://zhuanlan.zhihu.com/p/675238420)
+
 ```
 eamodio.gitlens
 esbenp.prettier-vscode
