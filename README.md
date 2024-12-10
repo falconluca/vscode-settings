@@ -2,10 +2,13 @@
 
 ```json
 {
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "JetBrains Darcula Theme",
     
     "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
-    "editor.fontSize": 18,
+    "editor.fontSize": 16,
+    
+    // 关闭 Minimap 代码预览图
+    "editor.minimap.enabled": false,
 
     "git.enableSmartCommit": true,
     
@@ -17,7 +20,19 @@
     
     "gitlens.views.commitDetails.files.layout": "tree",
     "gitlens.ai.model": "openai:o1-preview",
-    "gitlens.graph.minimap.enabled": false
+    
+    "gitlens.graph.minimap.enabled": false,
+    
+    "terminal.integrated.fontSize": 18,
+    "debug.console.fontSize": 18,
+
+    "window.zoomLevel": 0.4,
+    "git-graph.commitDetailsView.location": "Docked to Bottom",
+    "git-graph.date.format": "ISO Date & Time",
+    "git-graph.repository.commits.fetchAvatars": true,
+    "git-graph.repository.commits.initialLoad": 350,
+    "gitlens.blame.format": "${author|6?} ${date|14-}",
+    "gitlens.blame.dateFormat": "YYYY-MM-DD",
 }
 ```
 
@@ -26,9 +41,11 @@
 [GitLens](https://github.com/gitkraken/vscode-gitlens) [无限试用GitLens的方案](https://zhuanlan.zhihu.com/p/675238420)
 
 ```
+anan.jetbrains-darcula-theme
 eamodio.gitlens
 esbenp.prettier-vscode
 golang.go
+mhutchie.git-graph
 ritwickdey.liveserver
 vue.volar
 ```
@@ -42,10 +59,6 @@ vue.volar
 ```json
 [
     {
-        "key": "cmd+2",
-        "command": "workbench.view.extension.gitlensPanel"
-    },
-    {
         "key": "alt+cmd+b",
         "command": "workbench.action.closePanel"
     },
@@ -55,9 +68,33 @@ vue.volar
         "when": "workbench.scm.active"
     },
     {
-        "key": "ctrl+shift+g",
-        "command": "-workbench.view.scm",
-        "when": "workbench.scm.active"
+        "key": "shift+ctrl+g",
+        "command": "workbench.view.scm",
+        "when": "-workbench.scm.active"
+    },
+    {
+        "key": "cmd+2",
+        "command": "git-graph.view"
+    },
+    {
+        "key": "cmd+3",
+        "command": "gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:blameable'"
+    },
+    {
+        "key": "alt+b",
+        "command": "-gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:blameable'"
+    },
+    {
+        "key": "cmd+3",
+        "command": "gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
+    },
+    {
+        "key": "alt+cmd+g b",
+        "command": "-gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
     }
 ]
 ```
