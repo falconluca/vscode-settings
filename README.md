@@ -2,8 +2,27 @@
 
 ```json
 {
+  // 主题
   "workbench.colorTheme": "JetBrains Darcula Theme",
+  "editor.tokenColorCustomizations": {
+    "[JetBrains Darcula Theme]": {
+      "textMateRules": [
+        {
+          "scope": "entity.name.type.go",
+          "settings": {
+            "foreground": "#3d9bb8"
+          }
+        }
+      ]
+    }
+  },
+
+  // "workbench.colorTheme": "Tokyo Night",
+  // "workbench.colorTheme": "Tokyo Night Storm",
+  
   "workbench.iconTheme": "vscode-icons",
+
+  // "workbench.statusBar.visible": false
 
   "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
   "editor.fontSize": 16,
@@ -18,6 +37,7 @@
   "gitlens.graph.minimap.enabled": false,
   "gitlens.blame.format": "${author|6?} ${date|11-}",
   "gitlens.blame.dateFormat": "YYYY-MM-DD",
+  "gitlens.launchpad.indicator.enabled": false,
 
   "git-graph.commitDetailsView.location": "Docked to Bottom",
   "git-graph.date.format": "ISO Date & Time",
@@ -36,40 +56,64 @@
 
   "window.zoomLevel": 0.2,
 
+  "editor.formatOnSave": true,
+
   // 格式化
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[go]": {
-    "editor.formatOnSave": true,
     "editor.defaultFormatter": "golang.go",
   },
   "go.formatTool": "gofmt",
+
+  "breadcrumbs.symbolPath": "off",
+
+  "window.title": "${activeRepositoryBranchName}${separator}${rootName}",
+
+  "eslint.enable": true,
+  "eslint.validate": [
+    "vue",
+    "react",
+    "javascript",
+    "typescript",
+    "html"
+  ],
+
+  "workbench.startupEditor": "newUntitledFile",
+  
+  "editor.suggestSelection": "recentlyUsed",
+  
+  "go.toolsManagement.autoUpdate": true,
+  
+  "bracketPairColorizer.depreciation-notice": false,
 }
 ```
 
@@ -81,14 +125,24 @@
 
 ```
 anan.jetbrains-darcula-theme
+codeium.windsurfpyright
 coenraads.bracket-pair-colorizer
+dbaeumer.vscode-eslint
 eamodio.gitlens
 esbenp.prettier-vscode
 golang.go
 mhutchie.git-graph
+mikoz.black-py
+ms-azuretools.vscode-docker
+ms-kubernetes-tools.vscode-kubernetes-tools
+ms-python.debugpy
+ms-python.python
+redhat.vscode-yaml
 ritwickdey.liveserver
 vscode-icons-team.vscode-icons
 vue.volar
+wayou.vscode-todo-highlight
+xabikos.javascriptsnippets
 ```
 
 导出所有插件：`code --list-extensions > extensions.txt`
@@ -99,12 +153,6 @@ vue.volar
 
 ```json
 [
-  // 关闭底部面板 PS：类似 CMD+B 关闭左侧面板
-  {
-    "key": "alt+cmd+b",
-    "command": "workbench.action.closePanel"
-  },
-
   // 打开内置 SCM（源代码管理）面板
   {
     "key": "shift+cmd+g",
@@ -166,6 +214,10 @@ vue.volar
   // 打开 git diff 文件
   {
     "key": "alt+cmd+1",
+    "command": "git.openFile"
+  },
+  {
+    "key": "alt+cmd+1",
     "command": "git-graph.openFile"
   },
 
@@ -179,6 +231,57 @@ vue.volar
     "key": "shift+alt+down",
     "command": "-editor.action.copyLinesDownAction",
     "when": "editorTextFocus && !editorReadonly"
-  }
+  },
+
+  // 关闭底部面板 PS：类似 CMD+B 关闭左侧面板
+  {
+    "key": "alt+cmd+b",
+    "command": "workbench.action.closePanel"
+  },
+
+  // Rollback all changes
+  {
+    "key": "alt+cmd+z",
+    "command": "git.cleanAll"
+  },
+  // Rollback changes of current open file 
+  {
+    "key": "alt+cmd+x",
+    "command": "git.clean"
+  },
+  
+  // 分屏
+  {
+    "key": "cmd+s cmd+d",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorDown"
+  },
+  {
+    "key": "cmd+s cmd+l",
+    "command": "workbench.action.splitEditorLeft"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorLeft"
+  },
+  {
+    "key": "cmd+s cmd+r",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorRight"
+  },
+  {
+    "key": "cmd+s cmd+u",
+    "command": "workbench.action.splitEditorUp"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorUp"
+  },
 ]
 ```
