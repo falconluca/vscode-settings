@@ -8,8 +8,6 @@
   "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
   "editor.fontSize": 16,
   "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   "windsurf.autocompleteSpeed": "fast",
   "windsurf.enableSupercomplete": false,
@@ -36,7 +34,42 @@
 
   "debug.console.fontSize": 18,
 
-  "window.zoomLevel": 0.2
+  "window.zoomLevel": 0.2,
+
+  // 格式化
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "golang.go",
+  },
+  "go.formatTool": "gofmt",
 }
 ```
 
@@ -66,10 +99,13 @@ vue.volar
 
 ```json
 [
+  // 关闭底部面板 PS：类似 CMD+B 关闭左侧面板
   {
     "key": "alt+cmd+b",
     "command": "workbench.action.closePanel"
   },
+
+  // 打开内置 SCM（源代码管理）面板
   {
     "key": "shift+cmd+g",
     "command": "workbench.view.scm",
@@ -80,10 +116,14 @@ vue.volar
     "command": "workbench.view.scm",
     "when": "-workbench.scm.active"
   },
+
+  // 打开 git graph
   {
     "key": "cmd+2",
     "command": "git-graph.view"
   },
+
+  // 打开、关闭 git blame
   {
     "key": "cmd+3",
     "command": "gitlens.toggleFileBlame",
@@ -104,10 +144,14 @@ vue.volar
     "command": "-gitlens.toggleFileBlame",
     "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
   },
+  
+  // 定位到当前文件
   {
     "key": "cmd+1",
     "command": "workbench.files.action.showActiveFileInExplorer"
   },
+
+  // 打开、关闭终端
   {
     "key": "cmd+4",
     "command": "workbench.action.terminal.toggleTerminal",
@@ -118,9 +162,23 @@ vue.volar
     "command": "-workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
+
+  // 打开 git diff 文件
   {
     "key": "alt+cmd+1",
     "command": "git-graph.openFile"
+  },
+
+  // 模拟 Goland 复杂到下一行
+  {
+    "key": "cmd+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+down",
+    "command": "-editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]
 ```
