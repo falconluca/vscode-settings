@@ -21,15 +21,6 @@
   "gitlens.blame.format": "${author|6?} ${date|11-}",
   "gitlens.blame.dateFormat": "YYYY-MM-DD",
 
-  "terminal.integrated.fontSize": 18,
-  "debug.console.fontSize": 18,
-
-  "window.zoomLevel": 0.4,
-
-  "terminal.integrated.fontSize": 18,
-  "debug.console.fontSize": 18,
-
-  "window.zoomLevel": 0.4,
   "git-graph.commitDetailsView.location": "Docked to Bottom",
   "git-graph.date.format": "ISO Date & Time",
   "git-graph.repository.commits.fetchAvatars": true,
