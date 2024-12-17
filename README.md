@@ -18,8 +18,7 @@
   },
 
   // "workbench.colorTheme": "Tokyo Night",
-  // "workbench.colorTheme": "Tokyo Night Storm",
-  
+
   "workbench.iconTheme": "vscode-icons",
 
   // "workbench.statusBar.visible": false
@@ -28,12 +27,6 @@
   "editor.fontSize": 16,
   "editor.minimap.enabled": false,
 
-  "windsurf.autocompleteSpeed": "fast",
-  "windsurf.enableSupercomplete": false,
-  "windsurf.enableAutocomplete": false,
-
-  "gitlens.views.commitDetails.files.layout": "tree",
-  "gitlens.ai.model": "openai:o1-preview",
   "gitlens.graph.minimap.enabled": false,
   "gitlens.blame.format": "${author|6?} ${date|11-}",
   "gitlens.blame.dateFormat": "YYYY-MM-DD",
@@ -90,7 +83,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[go]": {
-    "editor.defaultFormatter": "golang.go",
+    "editor.defaultFormatter": "golang.go"
   },
   "go.formatTool": "gofmt",
 
@@ -99,21 +92,25 @@
   "window.title": "${activeRepositoryBranchName}${separator}${rootName}",
 
   "eslint.enable": true,
-  "eslint.validate": [
-    "vue",
-    "react",
-    "javascript",
-    "typescript",
-    "html"
-  ],
+  "eslint.validate": ["vue", "react", "javascript", "typescript", "html"],
 
   "workbench.startupEditor": "newUntitledFile",
-  
+
   "editor.suggestSelection": "recentlyUsed",
-  
-  "go.toolsManagement.autoUpdate": true,
-  
-  "bracketPairColorizer.depreciation-notice": false,
+
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "gitlens.rebase"
+  },
+
+  "git-graph.dialog.merge.noFastForward": false,
+  "git-graph.dialog.createBranch.checkOut": true,
+
+  "git-log--graph.details-panel-position": "bottom",
+
+  "periscope.peekBorderStyle": "dashed",
+  "gitlens.views.commitDetails.files.layout": "tree"
 }
 ```
 
@@ -131,12 +128,15 @@ dbaeumer.vscode-eslint
 eamodio.gitlens
 esbenp.prettier-vscode
 golang.go
+joshmu.periscope
+mads-hartmann.bash-ide-vscode
 mhutchie.git-graph
 mikoz.black-py
 ms-azuretools.vscode-docker
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.debugpy
 ms-python.python
+phil294.git-log--graph
 redhat.vscode-yaml
 ritwickdey.liveserver
 vscode-icons-team.vscode-icons
@@ -192,7 +192,7 @@ xabikos.javascriptsnippets
     "command": "-gitlens.toggleFileBlame",
     "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
   },
-  
+
   // 定位到当前文件
   {
     "key": "cmd+1",
@@ -244,15 +244,15 @@ xabikos.javascriptsnippets
     "key": "alt+cmd+z",
     "command": "git.cleanAll"
   },
-  // Rollback changes of current open file 
+  // Rollback changes of current open file
   {
     "key": "alt+cmd+x",
     "command": "git.clean"
   },
-  
+
   // 分屏
   {
-    "key": "cmd+s cmd+d",
+    "key": "cmd+k cmd+j",
     "command": "workbench.action.splitEditorDown"
   },
   {
@@ -260,7 +260,7 @@ xabikos.javascriptsnippets
     "command": "-workbench.action.splitEditorDown"
   },
   {
-    "key": "cmd+s cmd+l",
+    "key": "cmd+k cmd+h",
     "command": "workbench.action.splitEditorLeft"
   },
   {
@@ -268,7 +268,7 @@ xabikos.javascriptsnippets
     "command": "-workbench.action.splitEditorLeft"
   },
   {
-    "key": "cmd+s cmd+r",
+    "key": "cmd+k cmd+l",
     "command": "workbench.action.splitEditorRight"
   },
   {
@@ -276,12 +276,36 @@ xabikos.javascriptsnippets
     "command": "-workbench.action.splitEditorRight"
   },
   {
-    "key": "cmd+s cmd+u",
+    "key": "cmd+k cmd+k",
     "command": "workbench.action.splitEditorUp"
   },
   {
     "key": "cmd+k cmd+\\",
     "command": "-workbench.action.splitEditorUp"
   },
+
+  // 全局搜索
+  {
+    "key": "cmd+f",
+    "command": "periscope.search"
+  }
+
+  // 标签页
+  // {
+  //   "key": "ctrl+right",
+  //   "command": "workbench.action.nextEditor"
+  // },
+  // {
+  //   "key": "alt+cmd+right",
+  //   "command": "-workbench.action.nextEditor"
+  // },
+  // {
+  //   "key": "ctrl+left",
+  //   "command": "workbench.action.previousEditor"
+  // },
+  // {
+  //   "key": "alt+cmd+left",
+  //   "command": "-workbench.action.previousEditor"
+  // }
 ]
 ```
