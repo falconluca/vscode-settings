@@ -171,7 +171,14 @@ xabikos.javascriptsnippets
     "command": "git-graph.view"
   },
 
+  // 打开 gitlens graph
+  {
+    "key": "alt+cmd+2",
+    "command": "gitlens.showGraph"
+  },
+
   // 打开、关闭 git blame
+  // ---- Windsurf
   {
     "key": "cmd+3",
     "command": "gitlens.toggleFileBlame",
@@ -191,6 +198,27 @@ xabikos.javascriptsnippets
     "key": "alt+cmd+g b",
     "command": "-gitlens.toggleFileBlame",
     "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
+  },
+  // ---- VSCode
+  {
+    "key": "cmd+3",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "cmd+3",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "alt+cmd+g b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
   },
 
   // 定位到当前文件
@@ -251,32 +279,32 @@ xabikos.javascriptsnippets
   },
 
   // 分屏
+  // {
+  //   "key": "alt+cmd+s j",
+  //   "command": "workbench.action.splitEditorDown"
+  // },
+  // {
+  //   "key": "cmd+k cmd+\\",
+  //   "command": "-workbench.action.splitEditorDown"
+  // },
   {
-    "key": "cmd+k cmd+j",
-    "command": "workbench.action.splitEditorDown"
-  },
-  {
-    "key": "cmd+k cmd+\\",
-    "command": "-workbench.action.splitEditorDown"
-  },
-  {
-    "key": "cmd+k cmd+h",
+    "key": "alt+cmd+s v",
     "command": "workbench.action.splitEditorLeft"
   },
   {
     "key": "cmd+k cmd+\\",
     "command": "-workbench.action.splitEditorLeft"
   },
+  // {
+  //   "key": "alt+cmd+s l",
+  //   "command": "workbench.action.splitEditorRight"
+  // },
+  // {
+  //   "key": "cmd+k cmd+\\",
+  //   "command": "-workbench.action.splitEditorRight"
+  // },
   {
-    "key": "cmd+k cmd+l",
-    "command": "workbench.action.splitEditorRight"
-  },
-  {
-    "key": "cmd+k cmd+\\",
-    "command": "-workbench.action.splitEditorRight"
-  },
-  {
-    "key": "cmd+k cmd+k",
+    "key": "alt+cmd+s h",
     "command": "workbench.action.splitEditorUp"
   },
   {
@@ -288,6 +316,73 @@ xabikos.javascriptsnippets
   {
     "key": "cmd+f",
     "command": "periscope.search"
+  },
+
+  // LSP 基本键
+  {
+    "key": "alt+cmd+g d",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+g d",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && isWeb"
+  },
+  {
+    "key": "cmd+f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && isWeb"
+  },
+  {
+    "key": "alt+cmd+g y",
+    "command": "editor.action.goToTypeDefinition"
+  },
+  {
+    "key": "alt+cmd+g shift+i",
+    "command": "editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus"
+  },
+  {
+    "key": "cmd+f12",
+    "command": "-editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+g r",
+    "command": "editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  // Go to prev/next Reference
+  {
+    "key": "shift+f12",
+    "command": "-editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "references-view.next",
+    "when": "reference-list.hasResult && references-view.canNavigate"
+  },
+  {
+    "key": "f4",
+    "command": "-references-view.next",
+    "when": "reference-list.hasResult && references-view.canNavigate"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "references-view.prev",
+    "when": "reference-list.hasResult && references-view.canNavigate"
+  },
+  {
+    "key": "shift+f4",
+    "command": "-references-view.prev",
+    "when": "reference-list.hasResult && references-view.canNavigate"
   }
 
   // 标签页
