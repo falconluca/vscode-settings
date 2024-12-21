@@ -430,12 +430,12 @@ xabikos.javascriptsnippets
   },
   {
     "key": "shift+cmd+k",
-    "command": "git.push"
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
   },
   {
     "key": "shift+cmd+k",
-    "command": "-editor.action.deleteLines",
-    "when": "textInputFocus && !editorReadonly"
+    "command": "git.pushTo"
   }
 
   /* 标签页 */
