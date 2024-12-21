@@ -222,11 +222,13 @@ xabikos.javascriptsnippets
   },
   {
     "key": "cmd+0",
-    "command": "git-graph.openFile"
+    "command": "gitlens.openWorkingFileInDiffRight",
+    "when": "gitlens:enabled && isInDiffRightEditor && resourceScheme =~ /^(gitlens|pr)$/"
   },
   {
     "key": "cmd+0",
-    "command": "git.openFile2"
+    "command": "git-graph.openFile",
+    "when": "git-graph:codiconsSupported && isInDiffEditor && resourceScheme == 'git-graph'"
   },
   {
     "key": "cmd+0",
@@ -436,6 +438,12 @@ xabikos.javascriptsnippets
   {
     "key": "shift+cmd+k",
     "command": "git.pushTo"
+  },
+
+  // Balance out for HTML
+  {
+    "key": "alt+cmd+a",
+    "command": "editor.emmet.action.balanceOut"
   }
 
   /* 标签页 */
