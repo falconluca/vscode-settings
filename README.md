@@ -2,29 +2,11 @@
 
 ```json
 {
-  // 主题
-  "workbench.colorTheme": "JetBrains Darcula Theme",
-  "editor.tokenColorCustomizations": {
-    "[JetBrains Darcula Theme]": {
-      "textMateRules": [
-        {
-          "scope": "entity.name.type.go",
-          "settings": {
-            "foreground": "#3d9bb8"
-          }
-        }
-      ]
-    }
-  },
-
-  // "workbench.colorTheme": "Tokyo Night",
-
+  "workbench.colorTheme": "Default Dark+",
   "workbench.iconTheme": "vscode-icons",
 
-  // "workbench.statusBar.visible": false
-
   "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "editor.minimap.enabled": false,
 
   "gitlens.graph.minimap.enabled": false,
@@ -37,20 +19,19 @@
   "git-graph.repository.commits.fetchAvatars": true,
   "git-graph.repository.commits.initialLoad": 350,
 
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
 
   "git.enableSmartCommit": true,
 
   "files.autoSave": "afterDelay",
 
-  "terminal.integrated.fontSize": 18,
-
   "debug.console.fontSize": 18,
 
-  "window.zoomLevel": 0.2,
+  "window.zoomLevel": 1.8,
+  "editor.mouseWheelZoom": true,
 
   "editor.formatOnSave": true,
-
+  "editor.rulers": [120],
   // 格式化
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -83,13 +64,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[go]": {
-    "editor.defaultFormatter": "golang.go"
+    "editor.defaultFormatter": "golang.go",
+    "editor.rulers": [100]
   },
   "go.formatTool": "gofmt",
 
   "breadcrumbs.symbolPath": "off",
 
-  "window.title": "${activeRepositoryBranchName}${separator}${rootName}",
+  // "window.title": "${activeRepositoryBranchName}${separator}${rootName}",
+  "window.title": "${rootName}",
 
   "eslint.enable": true,
   "eslint.validate": ["vue", "react", "javascript", "typescript", "html"],
@@ -99,7 +82,7 @@
   "editor.suggestSelection": "recentlyUsed",
 
   "workbench.editor.wrapTabs": true,
-  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.editor.editorActionsLocation": "titleBar",
   "workbench.editorAssociations": {
     "git-rebase-todo": "gitlens.rebase"
   },
@@ -109,8 +92,39 @@
 
   "git-log--graph.details-panel-position": "bottom",
 
+  "gitlens.views.commitDetails.files.layout": "tree",
+  "gitlens.graph.dateFormat": "YYYY-MM-DD HH:mm:ss",
+  "gitlens.graph.dateStyle": "absolute",
+  "gitlens.graph.avatars": false,
+  "gitlens.graph.pullRequests.enabled": false,
+
   "periscope.peekBorderStyle": "dashed",
-  "gitlens.views.commitDetails.files.layout": "tree"
+  "periscope.rgOptions": ["--smart-case", "--sortr path", "--no-ignore"],
+
+  "workbench.colorCustomizations": {
+    "terminal.background": "#00000000",
+
+    "editorStickyScroll.background": "#474550" // Sticky Scroll 的背景颜色
+    // "editorStickyScrollHover.background": "#1111cc" // 鼠标悬停时的背景颜色
+  },
+  "workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
+  "vscode_vibrancy.theme": "Catppuccin Mocha",
+  "update.mode": "manual",
+  "cSpell.userWords": ["Catppuccin", "Darcula", "sortr"],
+  "workbench.activityBar.location": "top",
+  "workbench.layoutControl.enabled": false,
+
+  // 关闭文件管理器的 Sticky Scroll 代码导航功能
+  "workbench.tree.enableStickyScroll": false,
+  "workbench.panel.showLabels": false,
+  "terminal.integrated.fontSize": 18,
+  "gitlens.graph.scrollMarkers.additionalTypes": [
+    "stashes",
+    "localBranches",
+    "tags"
+  ]
+
+  // "window.commandCenter": false,
 }
 ```
 
@@ -121,13 +135,20 @@
 [无限试用 GitLens 的方案](https://zhuanlan.zhihu.com/p/675238420)
 
 ```
-anan.jetbrains-darcula-theme
+cmstead.js-codeformer
+cmstead.jsrefactor
 codeium.windsurfpyright
-coenraads.bracket-pair-colorizer
 dbaeumer.vscode-eslint
 eamodio.gitlens
 esbenp.prettier-vscode
+evgeniypeshkov.syntax-highlighter
+formulahendry.code-runner
+github.copilot
+github.copilot-chat
 golang.go
+grapecity.gc-excelviewer
+hediet.vscode-drawio
+illixion.vscode-vibrancy-continued
 joshmu.periscope
 mads-hartmann.bash-ide-vscode
 mhutchie.git-graph
@@ -136,10 +157,13 @@ ms-azuretools.vscode-docker
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.debugpy
 ms-python.python
+ms-vscode.extension-test-runner
 phil294.git-log--graph
 redhat.vscode-yaml
 ritwickdey.liveserver
+streetsidesoftware.code-spell-checker
 vscode-icons-team.vscode-icons
+vsls-contrib.codetour
 vue.volar
 wayou.vscode-todo-highlight
 xabikos.javascriptsnippets
@@ -164,91 +188,11 @@ xabikos.javascriptsnippets
     "command": "workbench.view.scm",
     "when": "-workbench.scm.active"
   },
-
-  // 打开 git graph
-  {
-    "key": "cmd+2",
-    "command": "git-graph.view"
-  },
-
-  // 打开 gitlens graph
-  {
-    "key": "alt+cmd+2",
-    "command": "gitlens.showGraph"
-  },
-
-  // 打开、关闭 git blame
-  // ---- Windsurf
-  {
-    "key": "cmd+3",
-    "command": "gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:blameable'"
-  },
-  {
-    "key": "alt+b",
-    "command": "-gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:blameable'"
-  },
-  {
-    "key": "cmd+3",
-    "command": "gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
-  },
-  {
-    "key": "alt+cmd+g b",
-    "command": "-gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && resource in 'gitlens:tabs:blameable'"
-  },
-  // ---- VSCode
-  {
-    "key": "cmd+3",
-    "command": "gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
-  },
-  {
-    "key": "alt+b",
-    "command": "-gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
-  },
-  {
-    "key": "cmd+3",
-    "command": "gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
-  },
-  {
-    "key": "alt+cmd+g b",
-    "command": "-gitlens.toggleFileBlame",
-    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
-  },
-
   // 定位到当前文件
   {
-    "key": "cmd+1",
+    "key": "cmd+b",
     "command": "workbench.files.action.showActiveFileInExplorer"
   },
-
-  // 打开、关闭终端
-  {
-    "key": "cmd+4",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-  {
-    "key": "ctrl+`",
-    "command": "-workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-
-  // 打开 git diff 文件
-  {
-    "key": "alt+cmd+1",
-    "command": "git.openFile"
-  },
-  {
-    "key": "alt+cmd+1",
-    "command": "git-graph.openFile"
-  },
-
   // 模拟 Goland 复杂到下一行
   {
     "key": "cmd+d",
@@ -260,13 +204,6 @@ xabikos.javascriptsnippets
     "command": "-editor.action.copyLinesDownAction",
     "when": "editorTextFocus && !editorReadonly"
   },
-
-  // 关闭底部面板 PS：类似 CMD+B 关闭左侧面板
-  {
-    "key": "alt+cmd+b",
-    "command": "workbench.action.closePanel"
-  },
-
   // Rollback all changes
   {
     "key": "alt+cmd+z",
@@ -278,49 +215,92 @@ xabikos.javascriptsnippets
     "command": "git.clean"
   },
 
-  // 分屏
-  // {
-  //   "key": "alt+cmd+s j",
-  //   "command": "workbench.action.splitEditorDown"
-  // },
-  // {
-  //   "key": "cmd+k cmd+\\",
-  //   "command": "-workbench.action.splitEditorDown"
-  // },
+  // 打开 git diff 文件
   {
-    "key": "alt+cmd+s v",
-    "command": "workbench.action.splitEditorLeft"
+    "key": "cmd+0",
+    "command": "git.openFile"
   },
   {
-    "key": "cmd+k cmd+\\",
-    "command": "-workbench.action.splitEditorLeft"
-  },
-  // {
-  //   "key": "alt+cmd+s l",
-  //   "command": "workbench.action.splitEditorRight"
-  // },
-  // {
-  //   "key": "cmd+k cmd+\\",
-  //   "command": "-workbench.action.splitEditorRight"
-  // },
-  {
-    "key": "alt+cmd+s h",
-    "command": "workbench.action.splitEditorUp"
+    "key": "cmd+0",
+    "command": "git-graph.openFile"
   },
   {
-    "key": "cmd+k cmd+\\",
-    "command": "-workbench.action.splitEditorUp"
+    "key": "cmd+0",
+    "command": "git.openFile2"
+  },
+  {
+    "key": "cmd+0",
+    "command": "-workbench.action.focusSideBar"
+  },
+  // 打开 git graph
+  {
+    "key": "cmd+9",
+    "command": "git-graph.view"
+  },
+  // 打开 gitlens graph
+  {
+    "key": "alt+cmd+9",
+    "command": "gitlens.showGraph"
+  },
+  // 打开、关闭 git blame
+  {
+    "key": "cmd+8",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "cmd+8",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "alt+cmd+g b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
   },
 
-  // 全局搜索
+  /* 分屏 */
+  {
+    "key": "alt+cmd+s alt+cmd+v",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorRight"
+  },
+  {
+    "key": "alt+cmd+s alt+cmd+h",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorDown"
+  },
+  // 关闭其它
+  {
+    "key": "alt+cmd+s alt+cmd+o",
+    "command": "workbench.action.closeOtherEditors"
+  },
+  {
+    "key": "alt+cmd+t",
+    "command": "-workbench.action.closeOtherEditors"
+  },
+
+  /* 搜索 */
   {
     "key": "cmd+f",
     "command": "periscope.search"
   },
 
-  // LSP 基本键
+  /* LSP 基本键 */
+  // Goto Definition PS：组合 svgd 命令
   {
-    "key": "alt+cmd+g d",
+    "key": "cmd+g cmd+d",
     "command": "editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus"
   },
@@ -330,7 +310,7 @@ xabikos.javascriptsnippets
     "when": "editorHasDefinitionProvider && editorTextFocus"
   },
   {
-    "key": "alt+cmd+g d",
+    "key": "cmd+g cmd+d",
     "command": "editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus && isWeb"
   },
@@ -339,12 +319,14 @@ xabikos.javascriptsnippets
     "command": "-editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus && isWeb"
   },
+  // Goto T[y]pe Definition
   {
-    "key": "alt+cmd+g y",
+    "key": "cmd+g cmd+y",
     "command": "editor.action.goToTypeDefinition"
   },
+  // Goto Implementation
   {
-    "key": "alt+cmd+g shift+i",
+    "key": "cmd+g cmd+i",
     "command": "editor.action.goToImplementation",
     "when": "editorHasImplementationProvider && editorTextFocus"
   },
@@ -353,17 +335,18 @@ xabikos.javascriptsnippets
     "command": "-editor.action.goToImplementation",
     "when": "editorHasImplementationProvider && editorTextFocus"
   },
+  // 	References
   {
-    "key": "alt+cmd+g r",
+    "key": "cmd+g cmd+r",
     "command": "editor.action.goToReferences",
     "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
   },
-  // Go to prev/next Reference
   {
     "key": "shift+f12",
     "command": "-editor.action.goToReferences",
     "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
   },
+  // Go to Prev Reference
   {
     "key": "alt+cmd+right",
     "command": "references-view.next",
@@ -374,6 +357,7 @@ xabikos.javascriptsnippets
     "command": "-references-view.next",
     "when": "reference-list.hasResult && references-view.canNavigate"
   },
+  // Go to Next Reference
   {
     "key": "alt+cmd+left",
     "command": "references-view.prev",
@@ -383,9 +367,78 @@ xabikos.javascriptsnippets
     "key": "shift+f4",
     "command": "-references-view.prev",
     "when": "reference-list.hasResult && references-view.canNavigate"
+  },
+  // Hover
+  {
+    "key": "cmd+g cmd+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+k cmd+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+
+  // Toggle Sidebar
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  // Toggle Panel
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  // AI Chat bar
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+  // Terminal
+  {
+    "key": "cmd+4",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+
+  // Git pull & push
+  {
+    "key": "cmd+t",
+    "command": "git.pull"
+  },
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "git.push"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
   }
 
-  // 标签页
+  /* 标签页 */
   // {
   //   "key": "ctrl+right",
   //   "command": "workbench.action.nextEditor"
