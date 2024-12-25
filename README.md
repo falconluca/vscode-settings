@@ -350,25 +350,25 @@ xabikos.javascriptsnippets
   },
   // Go to Prev Reference
   {
-    "key": "alt+cmd+right",
-    "command": "references-view.next",
-    "when": "reference-list.hasResult && references-view.canNavigate"
+    "key": "alt+cmd+left",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
   },
   {
-    "key": "f4",
-    "command": "-references-view.next",
-    "when": "reference-list.hasResult && references-view.canNavigate"
+    "key": "ctrl+-",
+    "command": "-workbench.action.navigateBack",
+    "when": "canNavigateBack"
   },
   // Go to Next Reference
   {
-    "key": "alt+cmd+left",
-    "command": "references-view.prev",
-    "when": "reference-list.hasResult && references-view.canNavigate"
+    "key": "alt+cmd+right",
+    "command": "workbench.action.navigateForward",
+    "when": "canNavigateForward"
   },
   {
-    "key": "shift+f4",
-    "command": "-references-view.prev",
-    "when": "reference-list.hasResult && references-view.canNavigate"
+    "key": "ctrl+shift+-",
+    "command": "-workbench.action.navigateForward",
+    "when": "canNavigateForward"
   },
   // Hover
   {
@@ -444,6 +444,31 @@ xabikos.javascriptsnippets
   {
     "key": "alt+cmd+a",
     "command": "editor.emmet.action.balanceOut"
+  },
+
+  // reference disable
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-quickInput.acceptInBackground",
+    "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   }
 
   /* 标签页 */
