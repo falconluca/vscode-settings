@@ -65,7 +65,12 @@
   },
   "[go]": {
     "editor.defaultFormatter": "golang.go",
-    "editor.rulers": [100]
+    "editor.rulers": [80]
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.rulers": [80],
+    "editor.tabSize": 4
   },
   "go.formatTool": "gofmt",
 
@@ -104,8 +109,16 @@
   "workbench.colorCustomizations": {
     "terminal.background": "#00000000",
 
-    "editorStickyScroll.background": "#474550" // Sticky Scroll 的背景颜色
+    "editorStickyScroll.background": "#474550", // Sticky Scroll 的背景颜色
     // "editorStickyScrollHover.background": "#1111cc" // 鼠标悬停时的背景颜色
+
+    /* Code Spell Checker */
+    "editorHint.foreground": "#93C572",
+    // "editorHint.border": "#ff0000",
+
+    // 当前行高亮
+    "editor.lineHighlightBackground": "#49b2b93d",
+    "editor.lineHighlightBorder": "#ffffff30"
   },
   "workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
   "vscode_vibrancy.theme": "Catppuccin Mocha",
@@ -117,12 +130,27 @@
   // 关闭文件管理器的 Sticky Scroll 代码导航功能
   "workbench.tree.enableStickyScroll": false,
   "workbench.panel.showLabels": false,
-  "terminal.integrated.fontSize": 18,
   "gitlens.graph.scrollMarkers.additionalTypes": [
     "stashes",
     "localBranches",
     "tags"
-  ]
+  ],
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "window.commandCenter": false,
+  "editor.stickyScroll.maxLineCount": 1,
+  "python.languageServer": "Pylance",
+
+  // Code Spell Checker https://stackoverflow.com/a/50322474
+  "cSpell.diagnosticLevel": "Hint",
+  "eslint.problems.shortenToSingleLine": true,
+
+  // 行高
+  "editor.lineHeight": 2
 
   // "window.commandCenter": false,
 }
@@ -152,12 +180,20 @@ illixion.vscode-vibrancy-continued
 joshmu.periscope
 mads-hartmann.bash-ide-vscode
 mhutchie.git-graph
-mikoz.black-py
 ms-azuretools.vscode-docker
 ms-kubernetes-tools.vscode-kubernetes-tools
+ms-python.black-formatter
 ms-python.debugpy
 ms-python.python
+ms-python.vscode-pylance
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+ms-vscode.cmake-tools
+ms-vscode.cpptools
+ms-vscode.cpptools-extension-pack
+ms-vscode.cpptools-themes
 ms-vscode.extension-test-runner
+ms-vscode.remote-explorer
 phil294.git-log--graph
 redhat.vscode-yaml
 ritwickdey.liveserver
@@ -370,6 +406,31 @@ xabikos.javascriptsnippets
     "command": "-workbench.action.navigateForward",
     "when": "canNavigateForward"
   },
+  // reference disable
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-quickInput.acceptInBackground",
+    "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+
   // Hover
   {
     "key": "cmd+g cmd+k",
@@ -444,31 +505,6 @@ xabikos.javascriptsnippets
   {
     "key": "alt+cmd+a",
     "command": "editor.emmet.action.balanceOut"
-  },
-
-  // reference disable
-  {
-    "key": "alt+cmd+right",
-    "command": "-workbench.action.nextEditor"
-  },
-  {
-    "key": "alt+cmd+right",
-    "command": "-quickInput.acceptInBackground",
-    "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
-  },
-  {
-    "key": "alt+cmd+right",
-    "command": "-workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "alt+cmd+left",
-    "command": "-workbench.action.previousEditor"
-  },
-  {
-    "key": "alt+cmd+left",
-    "command": "-workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   }
 
   /* 标签页 */
