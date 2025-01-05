@@ -117,8 +117,9 @@
     // "editorHint.border": "#ff0000",
 
     // 当前行高亮
-    "editor.lineHighlightBackground": "#49b2b93d",
-    "editor.lineHighlightBorder": "#ffffff30"
+    // "editor.lineHighlightBackground": "#49b2b93d",
+    "editor.lineHighlightBackground": "#d551c63d"
+    "editor.lineHighlightBorder": "#ffffff30",
   },
   "workbench.settings.applyToAllProfiles": ["workbench.colorCustomizations"],
   "vscode_vibrancy.theme": "Catppuccin Mocha",
