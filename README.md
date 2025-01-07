@@ -212,6 +212,13 @@ xabikos.javascriptsnippets
 
 ## Keyboard Shortcuts
 
+**键盘映射**
+
+|      | Windows | Mac  |
+| ---- | ------- | ---- |
+| 主键 | Ctrl    | Cmd  |
+| 辅键 | Alt     | Ctrl |
+
 ```json
 [
   // 打开内置 SCM（源代码管理）面板

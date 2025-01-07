@@ -200,12 +200,12 @@
   /* 5. Git */
   // Rollback all changes
   {
-    "key": "alt+cmd+z",
+    "key": "ctrl+x",
     "command": "git.cleanAll"
   },
   // Rollback changes of current open file
   {
-    "key": "alt+cmd+x",
+    "key": "ctrl+z",
     "command": "git.clean"
   },
   // Open git diff file
@@ -280,39 +280,48 @@
     "command": "-editor.action.deleteLines",
     "when": "textInputFocus && !editorReadonly"
   },
+  // Git graph search
+  {
+    "key": "cmd+g",
+    "command": "-editor.action.nextMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+g",
+    "command": "git-log--graph.toggle"
+  },
 
   // Balance out for HTML
   {
     "key": "alt+cmd+a",
     "command": "editor.emmet.action.balanceOut"
   },
-  // 定位到当前文件
-  {
-    "key": "cmd+b",
-    "command": "workbench.files.action.showActiveFileInExplorer"
-  },
-  // TODO 折叠文件夹
-  // TODO Go to line
-  // 模拟 Goland 复杂到下一行
+  // Copy lines down (Jetbrain)
   {
     "key": "cmd+d",
     "command": "editor.action.copyLinesDownAction",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
+    "key": "cmd+d",
+    "command": "-notebook.addFindMatchToSelection",
+    "when": "config.notebook.multiCursor.enabled && notebookCellEditorFocused && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "cmd+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
     "key": "shift+alt+down",
     "command": "-editor.action.copyLinesDownAction",
     "when": "editorTextFocus && !editorReadonly"
   },
+  // 虚拟行选择
   {
-    "key": "cmd+l cmd+o",
-    "command": "-extension.liveServer.goOnline",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "cmd+l cmd+c",
-    "command": "-extension.liveServer.goOffline",
-    "when": "editorTextFocus"
+    "key": "ctrl+l",
+    "command": "expandLineSelection",
+    "when": "textInputFocus"
   },
   {
     "key": "ctrl+l",
@@ -324,18 +333,35 @@
     "command": "-notebook.centerActiveCell",
     "when": "notebookEditorFocused"
   },
+  // Go to line
   {
     "key": "cmd+l",
     "command": "workbench.action.gotoLine"
   },
-  {
-    "key": "ctrl+l",
-    "command": "expandLineSelection",
-    "when": "textInputFocus"
-  },
+  // 取消 cmd+l 默认行为
   {
     "key": "cmd+l",
     "command": "-expandLineSelection",
     "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+l cmd+o",
+    "command": "-extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  // 定位当前文件
+  {
+    "key": "cmd+b",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  // 折叠目录
+  {
+    "key": "alt+cmd+b",
+    "command": "workbench.files.action.collapseExplorerFolders"
   }
 ]
