@@ -1,0 +1,341 @@
+[
+  /* 1. Sidebar & Panel*/
+  // Toggle left sidebar
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  // SCM
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "shift+ctrl+g",
+    "command": "workbench.view.scm",
+    "when": "-workbench.scm.active"
+  },
+  // Toggle panel
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  // Toggle GitLen commit graph
+  {
+    "key": "shift+cmd+c",
+    "command": "gitlens.toggleGraph"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  // Terminal
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "-workbench.action.reopenClosedEditor"
+  },
+  // Toggle AI Chat right sidebar
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+
+  /* 2. Split */
+  {
+    "key": "ctrl+s ctrl+v",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorRight"
+  },
+  {
+    "key": "ctrl+s ctrl+h",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+s ctrl+o",
+    "command": "workbench.action.closeOtherEditors"
+  },
+  {
+    "key": "alt+cmd+t",
+    "command": "-workbench.action.closeOtherEditors"
+  },
+
+  /* 3. LSP */
+  // Leader key of LSP, disable the default behavior
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  // Go to Definition
+  {
+    "key": "ctrl+g ctrl+d",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  // Go to T[y]pe Definition
+  {
+    "key": "ctrl+g ctrl+y",
+    "command": "editor.action.goToTypeDefinition"
+  },
+  // Go to Implementation
+  {
+    "key": "ctrl+g ctrl+i",
+    "command": "editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus"
+  },
+  {
+    "key": "cmd+f12",
+    "command": "-editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus"
+  },
+  // References
+  {
+    "key": "ctrl+g ctrl+r",
+    "command": "editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "shift+f12",
+    "command": "-editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  // Go to Prev Reference
+  {
+    "key": "alt+cmd+left",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "-workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  // Go to Next Reference
+  {
+    "key": "alt+cmd+right",
+    "command": "workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  {
+    "key": "ctrl+shift+-",
+    "command": "-workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-quickInput.acceptInBackground",
+    "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  // Show Hover
+  {
+    "key": "ctrl+g ctrl+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+k cmd+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+
+  /* 4. Telescope */
+  {
+    "key": "ctrl+f",
+    "command": "periscope.search"
+  },
+
+  /* 5. Git */
+  // Rollback all changes
+  {
+    "key": "alt+cmd+z",
+    "command": "git.cleanAll"
+  },
+  // Rollback changes of current open file
+  {
+    "key": "alt+cmd+x",
+    "command": "git.clean"
+  },
+  // Open git diff file
+  {
+    "key": "ctrl+1",
+    "command": "git.openFile"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "gitlens.openWorkingFileInDiffRight",
+    "when": "gitlens:enabled && isInDiffRightEditor && resourceScheme =~ /^(gitlens|pr)$/"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "git-graph.openFile",
+    "when": "git-graph:codiconsSupported && isInDiffEditor && resourceScheme == 'git-graph'"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "-workbench.action.openEditorAtIndex1"
+  },
+  // Open git graph
+  {
+    "key": "ctrl+2",
+    "command": "git-graph.view"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "-workbench.action.openEditorAtIndex2"
+  },
+  // Toggle git blame
+  {
+    "key": "ctrl+3",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "ctrl+3",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "alt+cmd+g b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  {
+    "key": "ctrl+3",
+    "command": "-workbench.action.openEditorAtIndex3"
+  },
+  // Git pull (Jetbrain)
+  {
+    "key": "cmd+t",
+    "command": "git.pullFrom"
+  },
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+  // Git push (Jetbrain)
+  {
+    "key": "shift+cmd+k",
+    "command": "git.pushTo"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+
+  // Balance out for HTML
+  {
+    "key": "alt+cmd+a",
+    "command": "editor.emmet.action.balanceOut"
+  },
+  // 定位到当前文件
+  {
+    "key": "cmd+b",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  // TODO 折叠文件夹
+  // TODO Go to line
+  // 模拟 Goland 复杂到下一行
+  {
+    "key": "cmd+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+down",
+    "command": "-editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+l cmd+o",
+    "command": "-extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat && chatLocation != 'editing-session'"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-notebook.centerActiveCell",
+    "when": "notebookEditorFocused"
+  },
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "expandLineSelection",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-expandLineSelection",
+    "when": "textInputFocus"
+  }
+]
