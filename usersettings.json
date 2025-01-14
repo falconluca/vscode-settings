@@ -2,7 +2,7 @@
   "workbench.colorTheme": "Default Dark+",
   "workbench.iconTheme": "vscode-icons",
 
-  "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+  "editor.fontFamily": "Monaco, Consolas",
   "editor.fontSize": 16,
   "editor.minimap.enabled": false,
 
@@ -73,8 +73,8 @@
 
   "breadcrumbs.symbolPath": "off",
 
-  // "window.title": "${activeRepositoryBranchName}${separator}${rootName}",
-  "window.title": "${rootName}",
+  "window.title": "${rootName}${separator}${activeRepositoryBranchName}",
+  // "window.title": "${rootName}",
 
   "eslint.enable": true,
   "eslint.validate": ["vue", "react", "javascript", "typescript", "html"],
@@ -222,7 +222,7 @@
   "workbench.activityBar.location": "top",
 
   // 隐藏文件夹状态箭头
-  "vsicons.presets.hideExplorerArrows": true,
+  // "vsicons.presets.hideExplorerArrows": true,
 
   "explorer.decorations.badges": false,
   "gitlens.hovers.currentLine.enabled": false,
@@ -233,7 +233,7 @@
   "gitlens.hovers.autolinks.enabled": false,
   "gitlens.hovers.avatars": false,
   "gitlens.hovers.annotations.over": "annotation",
-  "gitlens.views.commitDetails.files.layout": "tree"
-
-  // "window.commandCenter": false,
+  "gitlens.views.commitDetails.files.layout": "tree",
+  "gitlens.blame.heatmap.location": "left",
+  "semanticdiff.diff.contextLines": 7
 }

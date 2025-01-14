@@ -1,5 +1,7 @@
 ## User Settings
 
+原则：保持简洁，不用的功能都关闭/隐藏，减少噪音
+
 ```json
 {
   "workbench.colorTheme": "Default Dark+",

@@ -290,6 +290,11 @@
     "key": "cmd+g",
     "command": "git-log--graph.toggle"
   },
+  // Git checkout...
+  {
+    "key": "ctrl+c",
+    "command": "git.checkout"
+  },
 
   // Balance out for HTML
   {
@@ -363,5 +368,23 @@
   {
     "key": "alt+cmd+b",
     "command": "workbench.files.action.collapseExplorerFolders"
+  },
+  // New file...
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  // New folder...
+  {
+    "key": "shift+cmd+n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "shift+cmd+n",
+    "command": "-workbench.action.newWindow"
   }
 ]

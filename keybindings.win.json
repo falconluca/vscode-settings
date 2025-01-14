@@ -2,46 +2,54 @@
   /* 1. Sidebar & Panel*/
   // Toggle left sidebar
   {
-    "key": "cmd+1",
+    "key": "ctrl+1",
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
-    "key": "cmd+b",
+    "key": "ctrl+1",
+    "command": "-workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "ctrl+b",
     "command": "-workbench.action.toggleSidebarVisibility"
   },
   // SCM
   {
-    "key": "shift+cmd+g",
+    "key": "shift+ctrl+g",
     "command": "workbench.view.scm",
     "when": "workbench.scm.active"
   },
-  {
-    "key": "shift+ctrl+g",
-    "command": "workbench.view.scm",
-    "when": "-workbench.scm.active"
-  },
   // Toggle panel
   {
-    "key": "cmd+2",
+    "key": "ctrl+2",
     "command": "workbench.action.togglePanel"
   },
   {
-    "key": "cmd+j",
+    "key": "ctrl+j",
     "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "-workbench.action.focusSecondEditorGroup"
   },
   // Toggle GitLen commit graph
   {
-    "key": "shift+cmd+c",
+    "key": "shift+ctrl+c",
     "command": "gitlens.toggleGraph"
   },
   {
-    "key": "shift+cmd+c",
+    "key": "shift+ctrl+c",
     "command": "-workbench.action.terminal.openNativeConsole",
     "when": "!terminalFocus"
   },
+  {
+    "key": "ctrl+shift+c",
+    "command": "-workbench.action.terminal.copySelection",
+    "when": "terminalTextSelectedInFocused || terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected || terminalFocus && terminalTextSelected && terminalTextSelectedInFocused || terminalHasBeenCreated && terminalTextSelected && terminalTextSelectedInFocused || terminalProcessSupported && terminalTextSelected && terminalTextSelectedInFocused"
+  },
   // Terminal
   {
-    "key": "shift+cmd+t",
+    "key": "shift+ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
@@ -51,199 +59,151 @@
     "when": "terminal.active"
   },
   {
-    "key": "shift+cmd+t",
+    "key": "shift+ctrl+t",
     "command": "-workbench.action.reopenClosedEditor"
   },
   // Toggle AI Chat right sidebar
   {
-    "key": "cmd+3",
+    "key": "ctrl+3",
     "command": "workbench.action.toggleAuxiliaryBar"
   },
   {
-    "key": "alt+cmd+b",
+    "key": "alt+ctrl+b",
     "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "ctrl+3",
+    "command": "-workbench.action.focusThirdEditorGroup"
   },
 
   /* 2. Split */
   {
-    "key": "ctrl+s ctrl+v",
+    "key": "alt+s alt+v",
     "command": "workbench.action.splitEditorRight"
   },
   {
-    "key": "cmd+k cmd+\\",
+    "key": "ctrl+k ctrl+\\",
     "command": "-workbench.action.splitEditorRight"
   },
   {
-    "key": "ctrl+s ctrl+h",
+    "key": "alt+s alt+h",
     "command": "workbench.action.splitEditorDown"
   },
   {
-    "key": "cmd+k cmd+\\",
+    "key": "ctrl+k ctrl+\\",
     "command": "-workbench.action.splitEditorDown"
   },
   {
-    "key": "ctrl+s ctrl+o",
+    "key": "alt+s alt+o",
     "command": "workbench.action.closeOtherEditors"
-  },
-  {
-    "key": "alt+cmd+t",
-    "command": "-workbench.action.closeOtherEditors"
   },
 
   /* 3. LSP */
-  // Leader key of LSP, disable the default behavior
-  {
-    "key": "ctrl+g",
-    "command": "-workbench.action.gotoLine"
-  },
   // Go to Definition
   {
-    "key": "ctrl+g ctrl+d",
+    "key": "alt+g alt+d",
     "command": "editor.action.revealDefinition",
-    "when": "editorHasDefinitionProvider && editorTextFocus"
-  },
-  {
-    "key": "f12",
-    "command": "-editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus"
   },
   // Go to T[y]pe Definition
   {
-    "key": "ctrl+g ctrl+y",
+    "key": "alt+g alt+y",
     "command": "editor.action.goToTypeDefinition"
   },
   // Go to Implementation
   {
-    "key": "ctrl+g ctrl+i",
+    "key": "alt+g alt+i",
     "command": "editor.action.goToImplementation",
-    "when": "editorHasImplementationProvider && editorTextFocus"
-  },
-  {
-    "key": "cmd+f12",
-    "command": "-editor.action.goToImplementation",
     "when": "editorHasImplementationProvider && editorTextFocus"
   },
   // References
   {
-    "key": "ctrl+g ctrl+r",
+    "key": "alt+g alt+r",
     "command": "editor.action.goToReferences",
-    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-  },
-  {
-    "key": "shift+f12",
-    "command": "-editor.action.goToReferences",
     "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
   },
   // Go to Prev Reference
   {
-    "key": "alt+cmd+left",
+    "key": "alt+left",
     "command": "workbench.action.navigateBack",
-    "when": "canNavigateBack"
-  },
-  {
-    "key": "ctrl+-",
-    "command": "-workbench.action.navigateBack",
     "when": "canNavigateBack"
   },
   // Go to Next Reference
   {
-    "key": "alt+cmd+right",
+    "key": "alt+right",
     "command": "workbench.action.navigateForward",
     "when": "canNavigateForward"
   },
-  {
-    "key": "ctrl+shift+-",
-    "command": "-workbench.action.navigateForward",
-    "when": "canNavigateForward"
-  },
-  {
-    "key": "alt+cmd+right",
-    "command": "-workbench.action.nextEditor"
-  },
-  {
-    "key": "alt+cmd+right",
-    "command": "-quickInput.acceptInBackground",
-    "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
-  },
-  {
-    "key": "alt+cmd+right",
-    "command": "-workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "alt+cmd+left",
-    "command": "-workbench.action.previousEditor"
-  },
-  {
-    "key": "alt+cmd+left",
-    "command": "-workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-  },
   // Show Hover
   {
-    "key": "ctrl+g ctrl+k",
+    "key": "alt+g alt+k",
     "command": "editor.action.showHover",
     "when": "editorTextFocus"
   },
   {
-    "key": "cmd+k cmd+i",
+    "key": "ctrl+k ctrl+i",
     "command": "-editor.action.showHover",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+i",
+    "command": "-editor.debug.action.showDebugHover",
+    "when": "editorTextFocus && inDebugMode"
   },
 
   /* 4. Telescope */
   {
-    "key": "ctrl+f",
+    "key": "alt+f",
     "command": "periscope.search"
   },
 
   /* 5. Git */
   // Rollback all changes
   {
-    "key": "ctrl+x",
+    "key": "alt+x",
     "command": "git.cleanAll"
   },
   // Rollback changes of current open file
   {
-    "key": "ctrl+z",
+    "key": "alt+z",
     "command": "git.clean"
   },
   // Open git diff file
   {
-    "key": "ctrl+1",
+    "key": "alt+1",
     "command": "git.openFile"
   },
   {
-    "key": "ctrl+1",
+    "key": "alt+1",
     "command": "gitlens.openWorkingFileInDiffRight",
     "when": "gitlens:enabled && isInDiffRightEditor && resourceScheme =~ /^(gitlens|pr)$/"
   },
   {
-    "key": "ctrl+1",
+    "key": "alt+1",
     "command": "git-graph.openFile",
     "when": "git-graph:codiconsSupported && isInDiffEditor && resourceScheme == 'git-graph'"
   },
   {
-    "key": "ctrl+1",
+    "key": "alt+1",
     "command": "-workbench.action.openEditorAtIndex1"
   },
   // Open git graph
   {
-    "key": "ctrl+2",
+    "key": "alt+2",
     "command": "git-graph.view"
   },
   {
-    "key": "ctrl+2",
+    "key": "alt+2",
     "command": "-workbench.action.openEditorAtIndex2"
   },
   // Toggle git blame
   {
-    "key": "ctrl+3",
+    "key": "alt+3",
     "command": "gitlens.toggleFileBlame",
     "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
   },
   {
-    "key": "ctrl+3",
+    "key": "alt+3",
     "command": "gitlens.toggleFileBlame",
     "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
   },
@@ -253,62 +213,92 @@
     "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
   },
   {
-    "key": "alt+cmd+g b",
+    "key": "ctrl+shift+g b",
     "command": "-gitlens.toggleFileBlame",
     "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
   },
   {
-    "key": "ctrl+3",
+    "key": "alt+3",
     "command": "-workbench.action.openEditorAtIndex3"
+  },
+  // Git checkout to
+  {
+    "key": "alt+c",
+    "command": "git.checkout"
+  },
+  {
+    "key": "alt+c",
+    "command": "-gitlens.showQuickCommitFileDetails",
+    "when": "editorTextFocus && !gitlens:disabled && config.gitlens.keymap == 'alternate'"
+  },
+  {
+    "key": "alt+c",
+    "command": "-toggleSearchEditorCaseSensitive",
+    "when": "inSearchEditor && searchInputBoxFocus"
+  },
+  {
+    "key": "alt+c",
+    "command": "-workbench.action.terminal.toggleFindCaseSensitive",
+    "when": "terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported"
+  },
+  {
+    "key": "alt+c",
+    "command": "-toggleFindCaseSensitive",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+c",
+    "command": "-toggleSearchCaseSensitive",
+    "when": "searchViewletFocus"
   },
   // Git pull (Jetbrain)
   {
-    "key": "cmd+t",
+    "key": "ctrl+t",
     "command": "git.pullFrom"
   },
   {
-    "key": "cmd+t",
+    "key": "ctrl+t",
     "command": "-workbench.action.showAllSymbols"
   },
   // Git push (Jetbrain)
   {
-    "key": "shift+cmd+k",
+    "key": "shift+ctrl+k",
     "command": "git.pushTo"
   },
   {
-    "key": "shift+cmd+k",
+    "key": "shift+ctrl+k",
     "command": "-editor.action.deleteLines",
     "when": "textInputFocus && !editorReadonly"
   },
   // Git graph search
   {
-    "key": "cmd+g",
-    "command": "-editor.action.nextMatchFindAction",
-    "when": "editorFocus"
+    "key": "ctrl+g",
+    "command": "git-log--graph.toggle"
   },
   {
-    "key": "cmd+g",
-    "command": "git-log--graph.toggle"
+    "key": "ctrl+g",
+    "command": "-workbench.action.terminal.goToRecentDirectory",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
 
   // Balance out for HTML
   {
-    "key": "alt+cmd+a",
+    "key": "alt+ctrl+a",
     "command": "editor.emmet.action.balanceOut"
   },
   // Copy lines down (Jetbrain)
   {
-    "key": "cmd+d",
+    "key": "ctrl+d",
     "command": "editor.action.copyLinesDownAction",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "cmd+d",
+    "key": "ctrl+d",
     "command": "-notebook.addFindMatchToSelection",
     "when": "config.notebook.multiCursor.enabled && notebookCellEditorFocused && activeEditor == 'workbench.editor.notebook'"
   },
   {
-    "key": "cmd+d",
+    "key": "ctrl+d",
     "command": "-editor.action.addSelectionToNextFindMatch",
     "when": "editorFocus"
   },
@@ -319,10 +309,30 @@
   },
   // 虚拟行选择
   {
-    "key": "ctrl+l",
+    "key": "alt+l",
     "command": "expandLineSelection",
     "when": "textInputFocus"
   },
+  {
+    "key": "alt+l",
+    "command": "-toggleSearchEditorContextLines",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "alt+l",
+    "command": "-toggleFindInSelection",
+    "when": "editorFocus"
+  },
+  // Go to line
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  // 取消 ctrl+l 默认行为
   {
     "key": "ctrl+l",
     "command": "-workbench.action.chat.newChat",
@@ -330,38 +340,51 @@
   },
   {
     "key": "ctrl+l",
-    "command": "-notebook.centerActiveCell",
-    "when": "notebookEditorFocused"
+    "command": "-workbench.action.chat.newEditSession",
+    "when": "chatEditingParticipantRegistered && chatIsEnabled && inChat && chatLocation == 'editing-session'"
   },
-  // Go to line
   {
-    "key": "cmd+l",
-    "command": "workbench.action.gotoLine"
-  },
-  // 取消 cmd+l 默认行为
-  {
-    "key": "cmd+l",
+    "key": "ctrl+l",
     "command": "-expandLineSelection",
     "when": "textInputFocus"
   },
   {
-    "key": "cmd+l cmd+o",
-    "command": "-extension.liveServer.goOnline",
-    "when": "editorTextFocus"
+    "key": "ctrl+l",
+    "command": "-notebook.centerActiveCell",
+    "when": "notebookEditorFocused"
   },
-  {
-    "key": "cmd+l cmd+c",
-    "command": "-extension.liveServer.goOffline",
-    "when": "editorTextFocus"
-  },
+
   // 定位当前文件
   {
-    "key": "cmd+b",
+    "key": "ctrl+b",
     "command": "workbench.files.action.showActiveFileInExplorer"
   },
   // 折叠目录
   {
-    "key": "alt+cmd+b",
+    "key": "shift+ctrl+b",
     "command": "workbench.files.action.collapseExplorerFolders"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "-workbench.action.tasks.build",
+    "when": "taskCommandsRegistered"
+  },
+  // New File
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  // New Folder
+  {
+    "key": "ctrl+shift+n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "-workbench.action.newWindow"
   }
 ]
