@@ -1,4 +1,6 @@
-# VS Code Settings
+# VSCode Settings
+
+![VSCode Settings Preview](./public/preview.png)
 
 ## Font
 
