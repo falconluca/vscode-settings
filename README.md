@@ -6,12 +6,12 @@
 
 ## Extensions
 
-**导出和安装**
-
 [code-extensions.txt](./code-extensions.txt)
 
-导出所有插件：`code --list-extensions > code-extensions.txt`
-安装所有插件：`cat code-extensions.txt | xargs -L 1 code --install-extension`
+**导出和安装**
+
+- 导出所有插件：`code --list-extensions > code-extensions.txt`
+- 安装所有插件：`cat code-extensions.txt | xargs -L 1 code --install-extension`
 
 **其它**
 
