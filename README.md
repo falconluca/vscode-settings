@@ -1,3 +1,18 @@
+# VS Code Settings
+
+## Font
+
+`"editor.fontFamily": "Monaco, Consolas"`
+
+- Macos: `Monaco`
+- Windows: `Consolas`
+
+## Themes/Color
+
+- [Vibrancy Continued](https://github.com/illixion/vscode-vibrancy-continued)
+  - `"vscode_vibrancy.theme": "Catppuccin Mocha"`
+  - `"workbench.colorTheme": "Default Dark+"`
+
 ## User Settings
 
 原则：保持简洁，不需要的功能都关闭/隐藏，减少噪音
