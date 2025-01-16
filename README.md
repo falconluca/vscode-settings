@@ -17,7 +17,7 @@
 
 ## User Settings
 
-原则：保持简洁，不需要的功能都关闭/隐藏，减少噪音
+Principle：Keep it simple and efficient
 
 [settings.json](./settings.json)
 
@@ -25,25 +25,25 @@
 
 [code-extensions.txt](./code-extensions.txt)
 
-**导出和安装**
+**Export & Install**
 
-- 导出所有插件：`code --list-extensions > code-extensions.txt`
-- 安装所有插件：`cat code-extensions.txt | xargs -L 1 code --install-extension`
+- Export：`code --list-extensions > code-extensions.txt`
+- Install：`cat code-extensions.txt | xargs -L 1 code --install-extension`
 
-**其它**
+**Others**
 
 - 无限试用 [GitLens](https://github.com/gitkraken/vscode-gitlens) 的 [方案](https://zhuanlan.zhihu.com/p/675238420)
 
 ## Keyboard Shortcuts
 
-**Leader 键映射**
+**Key Mappings**
 
-|      | Mac  | Windows |
-| ---- | ---- | ------- |
-| 主键 | Cmd  | Ctrl    |
-| 辅键 | Ctrl | Alt     |
+|               | Mac  | Windows |
+| ------------- | ---- | ------- |
+| Main Key      | Cmd  | Ctrl    |
+| Secondary Key | Ctrl | Alt     |
 
-**快捷键映射**
+**Keyboard Shortcuts Mappings**
 
 - [Macos](./keybindings/macos/keybindings.json)
 - [Windows](./keybindings/macos/keybindings.json)
