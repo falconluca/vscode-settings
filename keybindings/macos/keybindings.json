@@ -402,5 +402,9 @@
     "key": "alt+escape",
     "command": "-editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+  {
+    "key": "cmd+4",
+    "command": "workbench.action.createTerminalEditor"
   }
 ]
