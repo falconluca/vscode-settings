@@ -1,0 +1,491 @@
+[
+  /*
+   * 设计说明：本配置采用 Spacemacs 风格的 leader key（前缀键）
+   *   - cmd + 数字键  → 切换各面板（侧栏 / 终端 / AI 侧栏）
+   *   - ctrl + 数字键 → Git 相关操作
+   *   - ctrl+g        → LSP 跳转 leader（如 ctrl+g ctrl+d 跳定义）
+   *   - ctrl+s        → 分屏 leader（如 ctrl+s ctrl+v 向右分屏）
+   */
+
+  /* ============================================================
+   * 1. 侧边栏与面板（Sidebar & Panel）
+   *    cmd + 数字键 统一控制各面板开关
+   * ============================================================ */
+  // 左侧栏开关
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  // 禁用 cmd+b 默认的切换侧栏（cmd+b 改用于「定位文件」，见第 3 组）
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  // 打开源代码管理（SCM）视图：SCM 已激活时
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  // 打开 SCM 视图：SCM 未激活时
+  {
+    "key": "shift+ctrl+g",
+    "command": "workbench.view.scm",
+    "when": "-workbench.scm.active"
+  },
+  // 底部面板开关
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.togglePanel"
+  },
+  // 禁用 cmd+j 默认的切换面板（改用 cmd+2）
+  {
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  // 切换 GitLens 提交图（Commit Graph）
+  {
+    "key": "shift+cmd+c",
+    "command": "gitlens.toggleGraph"
+  },
+  // 禁用 shift+cmd+c 默认的「打开原生控制台」
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  // 终端开关
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  // 禁用 ctrl+` 默认的切换终端（改用 shift+cmd+t）
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  // 禁用 shift+cmd+t 默认的「重新打开已关闭编辑器」
+  {
+    "key": "shift+cmd+t",
+    "command": "-workbench.action.reopenClosedEditor"
+  },
+  // 右侧栏开关（AI Chat 面板）
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  // 禁用 alt+cmd+b 默认的切换右侧栏（alt+cmd+b 改用于「折叠目录」，见第 3 组）
+  {
+    "key": "alt+cmd+b",
+    "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+  // 创建终端编辑器（延续 cmd+数字键体系）
+  {
+    "key": "cmd+4",
+    "command": "workbench.action.createTerminalEditor"
+  },
+
+  /* ============================================================
+   * 2. 分屏编辑器（Split Editor）
+   *    ctrl+s 作为 leader，后接方向键
+   * ============================================================ */
+  // 向右分屏
+  {
+    "key": "ctrl+s ctrl+v",
+    "command": "workbench.action.splitEditorRight"
+  },
+  // 禁用默认的 cmd+k cmd+\ 向右分屏
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorRight"
+  },
+  // 向下分屏
+  {
+    "key": "ctrl+s ctrl+h",
+    "command": "workbench.action.splitEditorDown"
+  },
+  // 禁用默认的 cmd+k cmd+\ 向下分屏
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorDown"
+  },
+  // 关闭其他编辑器（只保留当前）
+  {
+    "key": "ctrl+s ctrl+o",
+    "command": "workbench.action.closeOtherEditors"
+  },
+  // 禁用默认的 alt+cmd+t 关闭其他编辑器
+  {
+    "key": "alt+cmd+t",
+    "command": "-workbench.action.closeOtherEditors"
+  },
+
+  /* ============================================================
+   * 3. 文件管理器（Explorer）
+   * ============================================================ */
+  // 在文件树中定位 / 高亮当前文件（cmd+b 已从侧栏开关改为此功能）
+  {
+    "key": "cmd+b",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  // 折叠文件树所有目录（alt+cmd+b 已从右侧栏开关改为此功能）
+  {
+    "key": "alt+cmd+b",
+    "command": "workbench.files.action.collapseExplorerFolders"
+  },
+  // 新建文件
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  // 禁用 cmd+n 默认的「新建无标题文件」（改用资源管理器新建文件）
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  // 新建文件夹
+  {
+    "key": "shift+cmd+n",
+    "command": "explorer.newFolder"
+  },
+  // 禁用 shift+cmd+n 默认的「新建窗口」（改用新建文件夹）
+  {
+    "key": "shift+cmd+n",
+    "command": "-workbench.action.newWindow"
+  },
+
+  /* ============================================================
+   * 4. 编辑操作（Editing）
+   * ============================================================ */
+  // Emmet 向外扩选（HTML 标签平衡选择）
+  {
+    "key": "alt+cmd+a",
+    "command": "editor.emmet.action.balanceOut"
+  },
+  // 向下复制当前行（借鉴 JetBrains）
+  {
+    "key": "cmd+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  // 禁用 cmd+d 在 Notebook 中的「添加查找匹配到选区」
+  {
+    "key": "cmd+d",
+    "command": "-notebook.addFindMatchToSelection",
+    "when": "config.notebook.multiCursor.enabled && notebookCellEditorFocused && activeEditor == 'workbench.editor.notebook'"
+  },
+  // 禁用 cmd+d 默认的「添加下一个匹配到选区」（让位给复制行）
+  {
+    "key": "cmd+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  // 禁用默认的 shift+alt+down 复制行（已改用 cmd+d）
+  {
+    "key": "shift+alt+down",
+    "command": "-editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  // 虚拟行选择（整行选中）
+  {
+    "key": "ctrl+l",
+    "command": "expandLineSelection",
+    "when": "textInputFocus"
+  },
+  // 禁用 ctrl+l 默认的「新建聊天」
+  {
+    "key": "ctrl+l",
+    "command": "-workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat && chatLocation != 'editing-session'"
+  },
+  // 禁用 ctrl+l 默认的「Notebook 居中当前单元格」
+  {
+    "key": "ctrl+l",
+    "command": "-notebook.centerActiveCell",
+    "when": "notebookEditorFocused"
+  },
+
+  /* ============================================================
+   * 5. 跳转与导航（Navigation）
+   * ============================================================ */
+  // 跳转到指定行
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.gotoLine"
+  },
+  // 禁用 cmd+l 默认的整行选择（整行选择改用 ctrl+l）
+  {
+    "key": "cmd+l",
+    "command": "-expandLineSelection",
+    "when": "textInputFocus"
+  },
+  // 禁用 cmd+l 组合键的 Live Server 上线（避免冲突）
+  {
+    "key": "cmd+l cmd+o",
+    "command": "-extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  // 禁用 cmd+l 组合键的 Live Server 下线（避免冲突）
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  // 后退（光标跳转历史回退）
+  {
+    "key": "alt+cmd+left",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  // 禁用默认的 ctrl+- 后退
+  {
+    "key": "ctrl+-",
+    "command": "-workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  // 前进（光标跳转历史前进）
+  {
+    "key": "alt+cmd+right",
+    "command": "workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  // 禁用默认的 ctrl+shift+- 前进
+  {
+    "key": "ctrl+shift+-",
+    "command": "-workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  // alt+cmd+right 同时禁用以下默认绑定（切换编辑器标签 / 快速输入 / 终端窗格），让位给「前进」
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-quickInput.acceptInBackground",
+    "when": "cursorAtEndOfQuickInputBox && inQuickInput && quickInputType == 'quickPick' || inQuickInput && !inputFocus && quickInputType == 'quickPick'"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  // alt+cmd+left 同时禁用以下默认绑定（切换编辑器标签 / 终端窗格），让位给「后退」
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+
+  /* ============================================================
+   * 6. LSP 语言服务
+   *    ctrl+g 作为 leader，后接子键
+   * ============================================================ */
+  // leader 键 ctrl+g：禁用其默认的「跳转到行」（跳行改用 cmd+l）
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  // 跳转到定义（Definition）
+  {
+    "key": "ctrl+g ctrl+d",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  // 禁用默认的 F12 跳转定义
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  // 跳转到类型定义（Type Definition）
+  {
+    "key": "ctrl+g ctrl+y",
+    "command": "editor.action.goToTypeDefinition"
+  },
+  // 跳转到实现（Implementation）
+  {
+    "key": "ctrl+g ctrl+i",
+    "command": "editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus"
+  },
+  // 禁用默认的 cmd+f12 跳转实现
+  {
+    "key": "cmd+f12",
+    "command": "-editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus"
+  },
+  // 查找所有引用（References）
+  {
+    "key": "ctrl+g ctrl+r",
+    "command": "editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  // 禁用默认的 shift+f12 查找引用
+  {
+    "key": "shift+f12",
+    "command": "-editor.action.goToReferences",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  // 显示悬停信息（Hover）
+  {
+    "key": "ctrl+g ctrl+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  // 禁用默认的 cmd+k cmd+i 显示悬停
+  {
+    "key": "cmd+k cmd+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+
+  /* ============================================================
+   * 7. 代码提示（IntelliSense）
+   * ============================================================ */
+  // 禁用 alt+cmd+v 默认的「语音听写」
+  {
+    "key": "alt+cmd+v",
+    "command": "-workbench.action.editorDictation.start",
+    "when": "hasSpeechProvider && !editorReadonly && !speechToTextInProgress"
+  },
+  // 触发代码建议（自动补全）
+  {
+    "key": "alt+cmd+v",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+  // 禁用默认的 alt+escape 触发建议
+  {
+    "key": "alt+escape",
+    "command": "-editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+  },
+
+  /* ============================================================
+   * 8. 搜索（Periscope，类似 Telescope）
+   * ============================================================ */
+  // 全局代码搜索
+  {
+    "key": "ctrl+f",
+    "command": "periscope.search"
+  },
+
+  /* ============================================================
+   * 9. Git（ctrl + 数字键体系）
+   * ============================================================ */
+  // 回滚所有改动（git clean -fd）
+  {
+    "key": "ctrl+x",
+    "command": "git.cleanAll"
+  },
+  // 回滚当前文件改动（git clean）
+  {
+    "key": "ctrl+z",
+    "command": "git.clean"
+  },
+  // 打开 git diff / 源文件
+  {
+    "key": "ctrl+1",
+    "command": "git.openFile"
+  },
+  // 在 diff 右侧编辑器打开工作区文件
+  {
+    "key": "ctrl+1",
+    "command": "gitlens.openWorkingFileInDiffRight",
+    "when": "gitlens:enabled && isInDiffRightEditor && resourceScheme =~ /^(gitlens|pr)$/"
+  },
+  // 在 git-graph diff 中打开文件
+  {
+    "key": "ctrl+1",
+    "command": "git-graph.openFile",
+    "when": "git-graph:codiconsSupported && isInDiffEditor && resourceScheme == 'git-graph'"
+  },
+  // 禁用 ctrl+1 默认的「打开第 1 个编辑器」
+  {
+    "key": "ctrl+1",
+    "command": "-workbench.action.openEditorAtIndex1"
+  },
+  // 打开 git-graph 视图
+  {
+    "key": "ctrl+2",
+    "command": "git-graph.view"
+  },
+  // 禁用 ctrl+2 默认的「打开第 2 个编辑器」
+  {
+    "key": "ctrl+2",
+    "command": "-workbench.action.openEditorAtIndex2"
+  },
+  // 切换当前文件 GitLens blame（alternate 键映射模式）
+  {
+    "key": "ctrl+3",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  // 切换当前文件 GitLens blame（chorded 键映射模式）
+  {
+    "key": "ctrl+3",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  // 禁用默认的 alt+b 切换 blame（alternate 模式）
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  // 禁用默认的 alt+cmd+g b 切换 blame（chorded 模式）
+  {
+    "key": "alt+cmd+g b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+  },
+  // 禁用 ctrl+3 默认的「打开第 3 个编辑器」
+  {
+    "key": "ctrl+3",
+    "command": "-workbench.action.openEditorAtIndex3"
+  },
+  // Git pull（借鉴 JetBrains）
+  {
+    "key": "cmd+t",
+    "command": "git.pullFrom"
+  },
+  // 禁用 cmd+t 默认的「跳转到符号」
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+  // Git push（借鉴 JetBrains）
+  {
+    "key": "shift+cmd+k",
+    "command": "git.pushTo"
+  },
+  // 禁用 shift+cmd+k 默认的「删除当前行」
+  {
+    "key": "shift+cmd+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  // 禁用 cmd+g 默认的「查找下一个匹配」
+  {
+    "key": "cmd+g",
+    "command": "-editor.action.nextMatchFindAction",
+    "when": "editorFocus"
+  },
+  // 切换 git-log--graph（提交图搜索）
+  {
+    "key": "cmd+g",
+    "command": "git-log--graph.toggle"
+  },
+  // Git checkout（切换 / 检出分支）
+  {
+    "key": "ctrl+c",
+    "command": "git.checkout"
+  }
+]

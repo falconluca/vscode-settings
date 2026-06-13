@@ -1,39 +1,141 @@
 {
+  // ============================================================
+  // 工作台与主题（Workbench & Theme）
+  // ============================================================
+  // 文件图标主题
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Default Dark+",
-  // 关闭预览标签页
-  "workbench.editor.enablePreview": false,
+  // 颜色主题
+  "workbench.colorTheme": "Dark+",
   // 把左侧那一栏图标，移动到上方横条
   "workbench.activityBar.location": "top",
+  // 启动时打开的编辑器：新建一个未保存文件
+  "workbench.startupEditor": "newUntitledFile",
+  // 编辑器操作按钮（如分割编辑器）的位置：放在标题栏
+  "workbench.editor.editorActionsLocation": "titleBar",
+  // 文件类型与编辑器的关联（git rebase 待办用 GitLens 打开）
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "gitlens.rebase"
+  },
+  // 空编辑器时的提示文字：隐藏
+  "workbench.editor.empty.hint": "hidden",
+  // 设置是否应用到所有 Profile（空数组 = 仅当前 Profile）
+  "workbench.settings.applyToAllProfiles": [],
+  // 关闭文件管理器的 Sticky Scroll 粘性滚动导航
+  "workbench.tree.enableStickyScroll": false,
+  // 底部面板的标签是否显示文字：不显示
+  "workbench.panel.showLabels": false,
+  // 浏览器版标题栏是否显示：不显示
+  "workbench.browser.showInTitleBar": false,
+  // 浏览器版是否自动打开 localhost 链接：不打开
+  "workbench.browser.openLocalhostLinks": false,
+
+  // 自定义颜色（编辑器高亮 + 状态栏按场景变色）
+  "workbench.colorCustomizations": {
+    "editorStickyScroll.background": "#474550",
+    "editorHint.foreground": "#93C572",
+    "editor.lineHighlightBorder": "#ffffff30",
+    "editor.lineHighlightBackground": "#d551c63d",
+
+    // 骚粉：正常写代码
+    "statusBar.background": "#EC4899",
+    "statusBar.foreground": "#FFFFFF",
+
+    // 紫色：没打开项目
+    "statusBar.noFolderBackground": "#4527A0",
+    "statusBar.noFolderForeground": "#FFFFFF",
+
+    // 橙色：正在 Debug
+    "statusBar.debuggingBackground": "#C45100",
+    "statusBar.debuggingForeground": "#FFFFFF",
+
+    // 绿色：远程环境
+    "statusBarItem.remoteBackground": "#2E7D32",
+    "statusBarItem.remoteForeground": "#FFFFFF"
+  },
+
+  // ============================================================
+  // 窗口（Window）
+  // ============================================================
+  // 窗口缩放级别
   "window.zoomLevel": 1,
+  // 标题栏样式：自定义（mac 原生风格）
   "window.titleBarStyle": "custom",
   // 隐藏标题栏上的命令中心按钮区
   "window.commandCenter": false,
+  // 窗口标题：项目名 / 远程名
+  "window.title": "${rootName}${separator}${remoteName}",
+  // 关闭窗口前确认：仅键盘快捷键触发时确认
+  "window.confirmBeforeClose": "keyboardOnly",
+
+  // ============================================================
+  // 编辑器（Editor）
+  // ============================================================
+  // 字体
   "editor.fontFamily": "Monaco",
+  // 字号
   "editor.fontSize": 16,
-  "editor.minimap.enabled": false,
+  // 行高倍数
   "editor.lineHeight": 1.8,
+  // 关闭小地图（minimap）
+  "editor.minimap.enabled": false,
+  // 按住 Ctrl/Cmd 滚轮缩放字号
   "editor.mouseWheelZoom": true,
+  // 保存时自动格式化
+  "editor.formatOnSave": true,
+  // 标尺（一行建议不超过的字符数）
+  "editor.rulers": [120],
+  // 建议项排序：最近使用的优先
+  "editor.suggestSelection": "recentlyUsed",
+  // 在字符串中也启用快速建议（自动补全）
   "editor.quickSuggestions": {
     "strings": "on"
   },
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.lineHeight": 1.2,
-  "gitlens.graph.minimap.enabled": false,
-  "gitlens.blame.format": "${author|6?} ${date|11-}",
-  "gitlens.blame.dateFormat": "YYYY-MM-DD",
-  "gitlens.launchpad.indicator.enabled": false,
-  "git-graph.commitDetailsView.location": "Docked to Bottom",
-  "git-graph.date.format": "ISO Date & Time",
-  "git-graph.repository.commits.fetchAvatars": true,
-  "git-graph.repository.commits.initialLoad": 350,
-  "diffEditor.ignoreTrimWhitespace": true,
-  "git.enableSmartCommit": true,
+  // Sticky Scroll（粘性滚动）最大行数：1 行
+  "editor.stickyScroll.maxLineCount": 1,
+
+  // ============================================================
+  // 文件（Files）
+  // ============================================================
+  // 自动保存：输入停顿后延迟保存
   "files.autoSave": "afterDelay",
-  "debug.console.fontSize": 18,
-  "editor.formatOnSave": true,
-  "editor.rulers": [120],
-  // 格式化
+
+  // ============================================================
+  // 终端（Terminal）
+  // ============================================================
+  // 终端字号
+  "terminal.integrated.fontSize": 14,
+  // 终端行高倍数
+  "terminal.integrated.lineHeight": 1.2,
+  // 关闭终端的 Sticky Scroll
+  "terminal.integrated.stickyScroll.enabled": false,
+
+  // ============================================================
+  // 调试（Debug）
+  // ============================================================
+  // 调试控制台字号
+  "debug.console.fontSize": 14,
+  // 断点视图展示方式：树形
+  "debug.breakpointsView.presentation": "tree",
+
+  // ============================================================
+  // Diff 编辑器（差异对比）
+  // ============================================================
+  // 不忽略首尾空白字符的差异
+  "diffEditor.ignoreTrimWhitespace": false,
+  // 空间不足时不强制切换到内联视图
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+
+  // ============================================================
+  // 面包屑与大纲（Breadcrumbs & Outline）
+  // ============================================================
+  // 面包屑不显示符号路径
+  "breadcrumbs.symbolPath": "off",
+  // 大纲默认全部折叠
+  "outline.collapseItems": "alwaysCollapse",
+
+  // ============================================================
+  // 按语言设置默认格式化器（保存格式化依赖此项）
+  // ============================================================
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -61,58 +163,93 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // Markdown 对比时忽略首尾空白
     "diffEditor.ignoreTrimWhitespace": true
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "[go]": {
     "editor.defaultFormatter": "golang.go",
+    // Go 标尺收窄到 80
     "editor.rulers": [80]
   },
-  "go.formatTool": "gofmt",
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
+    // Python 标尺收窄到 80
     "editor.rulers": [80],
+    // Python 缩进 4 空格
     "editor.tabSize": 4
   },
   "[solidity]": {
     "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
   },
-  "breadcrumbs.symbolPath": "off",
-  "window.title": "${rootName}${separator}${remoteName}",
-  "eslint.enable": true,
-  "eslint.validate": ["vue", "react", "javascript", "typescript", "html"],
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.suggestSelection": "recentlyUsed",
-  "workbench.editor.editorActionsLocation": "titleBar",
-  "workbench.editorAssociations": {
-    "git-rebase-todo": "gitlens.rebase"
-  },
-  "git-graph.dialog.merge.noFastForward": false,
-  "git-graph.dialog.createBranch.checkOut": true,
-  "periscope.peekBorderStyle": "dashed",
-  "periscope.rgOptions": ["--smart-case", "--sortr path", "--no-ignore"],
-  "workbench.colorCustomizations": {
-    "editorStickyScroll.background": "#474550",
-    "editorHint.foreground": "#93C572",
-    "editor.lineHighlightBorder": "#ffffff30",
-    "editor.lineHighlightBackground": "#d551c63d"
-  },
-  "workbench.settings.applyToAllProfiles": [],
-  "update.mode": "manual",
-  "cSpell.userWords": ["Catppuccin", "Darcula", "sortr"],
-  // 关闭文件管理器的 Sticky Scroll 代码导航功能
-  "workbench.tree.enableStickyScroll": false,
-  "editor.stickyScroll.maxLineCount": 1,
+
+  // ============================================================
+  // Go 语言
+  // ============================================================
+  // 格式化工具：gofmt
+  "go.formatTool": "gofmt",
+  // 关闭漏洞扫描
+  "go.diagnostic.vulncheck": "Off",
+  // 自动更新 Go 工具链
+  "go.toolsManagement.autoUpdate": true,
+
+  // ============================================================
+  // Python 语言
+  // ============================================================
+  // 语言服务器：Pylance
   "python.languageServer": "Pylance",
-  // Code Spell Checker https://stackoverflow.com/a/50322474
-  "cSpell.diagnosticLevel": "Hint",
+
+  // ============================================================
+  // Solidity
+  // ============================================================
+  // 格式化器：forge
+  "solidity.formatter": "forge",
+
+  // ============================================================
+  // ESLint
+  // ============================================================
+  // 启用 ESLint
+  "eslint.enable": true,
+  // 需要校验的语言
+  "eslint.validate": ["vue", "react", "javascript", "typescript", "html"],
+  // 问题面板的报错压缩成单行显示
   "eslint.problems.shortenToSingleLine": true,
-  "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "claudeCode.preferredLocation": "panel",
+
+  // ============================================================
+  // 代码拼写检查（Code Spell Checker）
+  // ============================================================
+  // 诊断级别：仅提示（Hint）
+  "cSpell.diagnosticLevel": "Hint",
+  // 用户自定义词汇（不会被标红）
+  "cSpell.userWords": ["Catppuccin", "Darcula", "sortr"],
+
+  // ============================================================
+  // Periscope（代码搜索）
+  // ============================================================
+  // peek 预览边框样式：虚线
+  "periscope.peekBorderStyle": "dashed",
+  // ripgrep 选项：智能大小写、按路径倒序、忽略 .gitignore
+  "periscope.rgOptions": ["--smart-case", "--sortr path", "--no-ignore"],
+
+  // ============================================================
+  // Git 通用
+  // ============================================================
+  // 启用智能提交（无暂存改动时直接提交全部）
+  "git.enableSmartCommit": true,
+  // 同步前不二次确认
+  "git.confirmSync": false,
+
+  // ============================================================
   // GitLens
+  // ============================================================
+  // GitLens 的右键菜单/命令可见性配置
   "gitlens.menus": {
     "editor": {
       "blame": true,
@@ -171,40 +308,135 @@
       "stash": false
     }
   },
+  // 关闭 GitLens CodeLens
   "gitlens.codeLens.enabled": false,
+  // 关闭 GitLens 状态栏
   "gitlens.statusBar.enabled": false,
-  "gitlens.hovers.pullRequests.enabled": false,
-  "gitlens.blame.highlight.locations": ["line"],
-  "gitlens.changes.locations": ["overview", "gutter"],
-  "gitlens.graph.pullRequests.enabled": false,
-  "gitlens.graph.avatars": false,
-  "gitlens.views.commitDetails.autolinks.enhanced": false,
+  // 关闭 GitLens 模式状态栏
   "gitlens.mode.statusBar.enabled": false,
-  "gitlens.views.commitDetails.autolinks.enabled": false,
-  "gitlens.heatmap.fadeLines": false,
-  "gitlens.hovers.currentLine.details": false,
-  "gitlens.hovers.currentLine.enabled": false,
-  "gitlens.views.commitDetails.files.compact": false,
-  "gitlens.views.commitDetails.avatars": false,
-  "gitlens.blame.avatars": false,
-  "gitlens.blame.compact": false,
-  "gitlens.hovers.autolinks.enabled": false,
-  "gitlens.hovers.avatars": false,
-  "gitlens.hovers.annotations.over": "annotation",
-  "gitlens.blame.heatmap.location": "left",
-  "gitlens.views.commitDetails.files.layout": "tree",
+  // 关闭 Launchpad 指示器
+  "gitlens.launchpad.indicator.enabled": false,
+  // 关闭图的小地图
+  "gitlens.graph.minimap.enabled": false,
+  // 关闭图中的 PR 显示
+  "gitlens.graph.pullRequests.enabled": false,
+  // 关闭图中的头像
+  "gitlens.graph.avatars": false,
+  // 图的时间格式
   "gitlens.graph.dateFormat": "YYYY-MM-DD HH:mm:ss",
+  // 图的时间样式：绝对时间
   "gitlens.graph.dateStyle": "absolute",
+  // 图的滚动标记附加类型：无
   "gitlens.graph.scrollMarkers.additionalTypes": [],
+
+  // 行内 blame 格式（作者 + 日期）
+  "gitlens.blame.format": "${author|6?} ${date|11-}",
+  // blame 日期格式
+  "gitlens.blame.dateFormat": "YYYY-MM-DD",
+  // blame 高亮位置：当前行
+  "gitlens.blame.highlight.locations": ["line"],
+  // 关闭 blame 头像
+  "gitlens.blame.avatars": false,
+  // 关闭 blame 紧凑模式
+  "gitlens.blame.compact": false,
+  // blame 热力图位置：左侧
+  "gitlens.blame.heatmap.location": "left",
+
+  // 关闭热力图渐隐
+  "gitlens.heatmap.fadeLines": false,
+  // 改动指示位置：概览栏 + 侧边栏
+  "gitlens.changes.locations": ["overview", "gutter"],
+
+  // 关闭当前行悬停详情
+  "gitlens.hovers.currentLine.details": false,
+  // 关闭当前行悬停
+  "gitlens.hovers.currentLine.enabled": false,
+  // 悬停注解触发方式：仅注解行
+  "gitlens.hovers.annotations.over": "annotation",
+  // 关闭悬停 PR
+  "gitlens.hovers.pullRequests.enabled": false,
+  // 关闭悬停自动链接
+  "gitlens.hovers.autolinks.enabled": false,
+  // 关闭悬停头像
+  "gitlens.hovers.avatars": false,
+
+  // 提交详情：关闭自动链接
+  "gitlens.views.commitDetails.autolinks.enabled": false,
+  // 提交详情：关闭增强自动链接
+  "gitlens.views.commitDetails.autolinks.enhanced": false,
+  // 提交详情文件：关闭紧凑模式
+  "gitlens.views.commitDetails.files.compact": false,
+  // 提交详情文件：关闭头像
+  "gitlens.views.commitDetails.avatars": false,
+  // 提交详情文件布局：树形
+  "gitlens.views.commitDetails.files.layout": "tree",
   // GitLens End
 
-  "go.diagnostic.vulncheck": "Off",
-  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-  "go.toolsManagement.autoUpdate": true,
-  "vsintellicode.modify.editor.suggestSelection": "disabled",
-  "vsicons.dontShowNewVersionMessage": true,
-  "claudeCode.selectedModel": "opus",
-  "git.confirmSync": false,
+  // ============================================================
+  // Git Graph
+  // ============================================================
+  // 提交详情视图位置：停靠在底部
+  "git-graph.commitDetailsView.location": "Docked to Bottom",
+  // 日期格式：ISO 日期时间
+  "git-graph.date.format": "ISO Date & Time",
+  // 拉取提交者头像
+  "git-graph.repository.commits.fetchAvatars": true,
+  // 初始加载的提交数量
+  "git-graph.repository.commits.initialLoad": 350,
+  // 合并对话框：不使用 no-fast-forward（默认 fast-forward）
+  "git-graph.dialog.merge.noFastForward": false,
+  // 创建分支对话框：创建后自动检出
+  "git-graph.dialog.createBranch.checkOut": true,
 
-  "github.copilot.chat.localeOverride": "zh-CN"
+  // ============================================================
+  // VSCode Icons
+  // ============================================================
+  // 不显示新版本提示
+  "vsicons.dontShowNewVersionMessage": true,
+
+  // ============================================================
+  // 更新（Update）
+  // ============================================================
+  // 更新模式：手动检查更新
+  "update.mode": "manual",
+
+  // ============================================================
+  // GitHub Copilot
+  // ============================================================
+  // Copilot Chat 语言：简体中文
+  "github.copilot.chat.localeOverride": "zh-CN",
+
+  // ============================================================
+  // Claude Code
+  // ============================================================
+  // 界面位置：底部面板
+  "claudeCode.preferredLocation": "panel",
+  // 使用终端运行（而非内联）
+  "claudeCode.useTerminal": true,
+  // 使用 Ctrl+Enter 发送
+  "claudeCode.useCtrlEnterToSend": true,
+  // 关闭登录提示
+  "claudeCode.disableLoginPrompt": true,
+  // 允许跳过权限确认
+  "claudeCode.allowDangerouslySkipPermissions": true,
+  // 初始权限模式：跳过权限
+  "claudeCode.initialPermissionMode": "bypassPermissions",
+
+  // ============================================================
+  // Chat（内置聊天）
+  // ============================================================
+  // 会话视图朝向：堆叠
+  "chat.viewSessions.orientation": "stacked",
+
+  // ============================================================
+  // Remote SSH（远程开发）
+  // ============================================================
+  // 不使用本地服务器
+  "remote.SSH.useLocalServer": false,
+  // 不使用 ExecServer
+  "remote.SSH.useExecServer": false,
+  // 远程主机平台映射
+  "remote.SSH.remotePlatform": {
+    "raspberrypi.local": "linux"
+  }
 }

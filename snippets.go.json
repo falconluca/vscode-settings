@@ -1,0 +1,151 @@
+{
+  "示例文件模板": {
+    "prefix": "ignoremain",
+    "body": ["//go:build ignore", "// +build ignore"],
+    "description": "构建标签：标记为示例文件，不参与编译"
+  },
+
+  "package main 模板": {
+    "prefix": "pkgm",
+    "body": [
+      "package main",
+      "",
+      "import (",
+      "\t\"fmt\"",
+      ")",
+      "",
+      "func main() {",
+      "\t${1:fmt.Println(\"Hello, world!\")}",
+      "}"
+    ],
+    "description": "package main 完整模板（含 import 与 main 函数）"
+  },
+
+  "main 函数": {
+    "prefix": "main",
+    "body": ["func main() {", "\t$0", "}"],
+    "description": "main 函数"
+  },
+
+  "init 函数": {
+    "prefix": "init",
+    "body": ["func init() {", "\t$0", "}"],
+    "description": "init 函数（包初始化时自动执行）"
+  },
+
+  "函数": {
+    "prefix": "fn",
+    "body": ["func ${1:name}(${2:args}) ${3:returnType} {", "\t$0", "}"],
+    "description": "普通函数"
+  },
+
+  "接收者方法": {
+    "prefix": "recv",
+    "body": [
+      "func (${1:receiver} *${2:Type}) ${3:MethodName}(${4:args}) ${5:returnType} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "接收者方法（指针接收者）"
+  },
+
+  "HTTP Handler": {
+    "prefix": "handler",
+    "body": [
+      "func ${1:handler}(w http.ResponseWriter, r *http.Request) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "HTTP Handler 函数"
+  },
+
+  "结构体": {
+    "prefix": "type",
+    "body": ["type ${1:Name} struct {", "\t$0", "}"],
+    "description": "结构体类型定义"
+  },
+
+  "接口": {
+    "prefix": "iface",
+    "body": ["type ${1:Name} interface {", "\t$0", "}"],
+    "description": "接口类型定义"
+  },
+
+  "for range 循环": {
+    "prefix": "forr",
+    "body": [
+      "for ${1:index}, ${2:value} := range ${3:collection} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "for range 循环（index 占位可改为 _ 以忽略）"
+  },
+
+  "for 循环": {
+    "prefix": "fori",
+    "body": ["for ${1:i} := 0; $1 < ${2:n}; $1++ {", "\t$0", "}"],
+    "description": "经典 for 循环（$1 三处同步镜像）"
+  },
+
+  "switch 语句": {
+    "prefix": "switch",
+    "body": [
+      "switch ${1:value} {",
+      "case ${2:case1}:",
+      "\t$0",
+      "default:",
+      "\t",
+      "}"
+    ],
+    "description": "switch 语句"
+  },
+
+  "select 语句": {
+    "prefix": "select",
+    "body": [
+      "select {",
+      "case ${1:msg} := <-${2:ch}:",
+      "\t$0",
+      "default:",
+      "\t",
+      "}"
+    ],
+    "description": "select 语句（channel 多路复用）"
+  },
+
+  "goroutine": {
+    "prefix": "go",
+    "body": ["go func() {", "\t$0", "}()"],
+    "description": "goroutine（匿名函数立即执行）"
+  },
+
+  "if err != nil 检查": {
+    "prefix": "errnil",
+    "body": ["if err != nil {", "\treturn ${1:fmt.Errorf(\"%w\", err)}", "}$0"],
+    "description": "if err != nil 时 return（带 %w 错误包装）"
+  },
+
+  "if err != nil panic": {
+    "prefix": "errp",
+    "body": ["if err != nil {", "\tpanic(err)", "}", "$0"],
+    "description": "if err != nil 时 panic"
+  },
+
+  "测试函数": {
+    "prefix": "test",
+    "body": ["func Test${1:Name}(t *testing.T) {", "\t$0", "}"],
+    "description": "单元测试函数（testing.T）"
+  },
+
+  "基准测试": {
+    "prefix": "bench",
+    "body": [
+      "func Benchmark${1:Name}(b *testing.B) {",
+      "\tfor i := 0; i < b.N; i++ {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "基准测试函数（testing.B）"
+  }
+}
